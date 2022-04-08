@@ -16,6 +16,9 @@ main{
 h2{
     margin: 5px;
 }
+ul{
+    padding: 0;
+}
 /* ------------------------------------------- section left ------------------------------------------- */
 #left-bloc{
     width: 40%;
@@ -85,6 +88,17 @@ input{
     display: inline-block;
     margin-right: 7px;
     text-transform: capitalize;
+}
+/* ------------------------------------ Classes liées au Drag n' Drop  ------------------------------ */
+.deplacement{
+    border: 2px dashed blue;
+}
+.depot{
+    width: 100%;
+    min-height: 20vh;
+}
+.hovered{
+    background-color: rgb(223, 8, 8);
 }
 /* ------------------------------------------- footer ------------------------------------------- */
 footer{

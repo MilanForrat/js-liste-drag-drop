@@ -16,23 +16,23 @@
                 <section id="article">
                     <h2>Ajouter un élément à la liste :</h2>
                     <form id="ajouterArticleForm">
-                        <input type="text" name="article" id="article-input" placeholder="Saisir un article à ajouter">
+                        <input type="text" minlength="3" required name="article" id="article-input" placeholder="Saisir un article à ajouter">
                         <button id="confirmer" class="btn">Ajouter</button>
                     </form>
                 </section>
                 <section id="bloc-articles">
                     <h2>Liste de courses :</h2>
-                    <div id="liste-articles"></div>
+                    <ul id="liste-articles" class="depot"></ul>
                 </section>
             </section>
             <section id="right-bloc">
                 <section id="bloc-achat">
                     <h2>Reste à acheter :</h2>
-                    <div id="liste-achat"></div>
+                    <ul id="liste-achat" class="depot"></ul>
                 </section>
                 <section id="bloc-maison">
                     <h2>Déjà à la maison :</h2>
-                    <div id="liste-maison"></div>
+                    <ul id="liste-maison" class="depot"></ul>
                 </section>
             </section>
         </main>
