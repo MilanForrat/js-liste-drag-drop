@@ -1,0 +1,93 @@
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(249, 249, 231);
+}
+header{
+    text-align: center;
+}
+main{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid rgba(0, 0, 0, 0.09);
+    background-color: rgba(146, 145, 145, 0.115);
+}
+h2{
+    margin: 5px;
+}
+/* ------------------------------------------- section left ------------------------------------------- */
+#left-bloc{
+    width: 40%;
+    min-height: 50vh;
+    margin: 5px;
+}
+/* ------------------------------------------- section right ------------------------------------------- */
+#right-bloc{
+    width: 50%;
+    min-height: 50vh;
+    margin: 5px;
+}
+/* ------------------------------------------- bloc liste ------------------------------------------- */
+#bloc-articles, #bloc-achat, #bloc-maison{
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 5px;
+    min-height: 20vh;
+}/* ------------------------------------------- bloc liste ------------------------------------------- */
+#bloc-maison{
+    background-color: rgb(213, 246, 226);
+}
+/* ------------------------------------------- bloc liste ------------------------------------------- */
+#bloc-achat{
+    background-color: rgb(225, 222, 195);
+}
+/* ------------------------------------------- bloc liste ------------------------------------------- */
+#bloc-articles{
+    background-color: rgb(213, 233, 246);
+}
+/* ------------------------------------------- btn ------------------------------------------- */
+.btn{
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+#confirmer{
+    background-color: rgb(84, 176, 119);
+    color: black;
+}
+#confirmer:hover{
+    background-color: rgb(56, 203, 112);
+    color: rgb(59, 25, 25);
+    transition: 0.4s;
+}
+/* ------------------------------------------- input ------------------------------------------- */
+input{
+    padding: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-style: italic;
+    width: 78%;
+    margin: 25px 0;
+}
+/* ------------------------------------------- tache ------------------------------------------- */
+.tache{
+    padding: 2px 8px;
+    background-color: rgb(250, 246, 246);
+    border: 2px solid rgba(0, 0, 0, 0.247);
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 7px;
+    text-transform: capitalize;
+}
+/* ------------------------------------------- footer ------------------------------------------- */
+footer{
+    text-align: center;
+    font-style: italic;
+}

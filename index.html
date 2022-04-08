@@ -8,7 +8,37 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        
+        <header>
+            <h1>Liste de courses</h1>
+        </header>
+        <main>
+            <section id="left-bloc">
+                <section id="article">
+                    <h2>Ajouter un élément à la liste :</h2>
+                    <form id="ajouterArticleForm">
+                        <input type="text" name="article" id="article-input" placeholder="Saisir un article à ajouter">
+                        <button id="confirmer" class="btn">Ajouter</button>
+                    </form>
+                </section>
+                <section id="bloc-articles">
+                    <h2>Liste de courses :</h2>
+                    <div id="liste-articles"></div>
+                </section>
+            </section>
+            <section id="right-bloc">
+                <section id="bloc-achat">
+                    <h2>Reste à acheter :</h2>
+                    <div id="liste-achat"></div>
+                </section>
+                <section id="bloc-maison">
+                    <h2>Déjà à la maison :</h2>
+                    <div id="liste-maison"></div>
+                </section>
+            </section>
+        </main>
+        <footer>
+            <p>Glissez vos articles dans les boîtes en fonction de vos besoins</p>
+        </footer>
         <script src="./app.js" type="text/javascript"></script>
     </body>
 </html>
