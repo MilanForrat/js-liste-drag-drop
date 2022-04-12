@@ -18,6 +18,7 @@ h2{
 }
 ul{
     padding: 0;
+    list-style: none;
 }
 /* ------------------------------------------- section left ------------------------------------------- */
 #left-bloc{
@@ -72,7 +73,7 @@ ul{
 input{
     padding: 5px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 7px;
     border: 2px solid black;
     border-radius: 5px;
     font-style: italic;
@@ -85,23 +86,29 @@ input{
     background-color: rgb(250, 246, 246);
     border: 2px solid rgba(0, 0, 0, 0.247);
     border-radius: 5px;
-    display: inline-block;
     margin-right: 7px;
     margin-bottom: 7px;
     text-transform: capitalize;
-    position: relative;
     font-weight: bold;
+    word-wrap: break-word;
 }
 .delete-btn{
-    position: absolute;
-    right: 0;
+    display: inline-block;
+    margin-bottom: -6px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     background-image: url(./icons-png/delete.png);
     background-size: cover;
     z-index: 99;
-    margin: 0 10px
+}
+.quantity-input{
+    /* position: absolute;
+    right: 30px;
+    bottom: 2px; */
+    width: 40px;
+    margin: 0 5px;
+    padding: 5px;
 }
 /* ------------------------------------ Classes liées au Drag n' Drop  ------------------------------ */
 .deplacement{
@@ -119,4 +126,14 @@ input{
 footer{
     text-align: center;
     font-style: italic;
+}
+@media(max-width: 768px){
+    main{
+        flex-direction: column;
+        align-items: center;
+    }
+    #left-bloc, #right-bloc{
+        width: 80%;
+        min-height: auto;
+    }
 }

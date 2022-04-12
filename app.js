@@ -33,6 +33,14 @@ function ajouterElementDivListeArticle(){
         newElement.setAttribute('draggable', true);
         newElement.className = "tache";
         divListeArticles.appendChild(newElement);
+        // création de la quantité
+        let newElementQuantityInput = document.createElement('input');
+        newElementQuantityInput.setAttribute("type","number");
+        newElementQuantityInput.setAttribute("min","0");
+        newElementQuantityInput.setAttribute("max","99");
+        newElementQuantityInput.value = 1;
+        newElementQuantityInput.classList = "quantity-input";
+        newElement.appendChild(newElementQuantityInput);
         // création de la croix (pour supprimer le li)
         let newElementCloseBtn = document.createElement('btn');
         newElementCloseBtn.classList = "delete-btn";
@@ -47,9 +55,9 @@ function ajouterElementDivListeArticle(){
 function preparerBtnDelete(){
     for(let i =0; i<tousLesBtnDelete.length;i++){
         tousLesBtnDelete[i].addEventListener('click', (e) =>{
-            console.log(e.target.parentElement);
+            // console.log(e.target.parentElement);
             let parent = e.target.parentElement;
-            console.log(parent.parentElement)
+            // console.log(parent.parentElement);
             parent.parentElement.removeChild(e.target.parentElement);
         })
     }    
