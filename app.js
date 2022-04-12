@@ -4,6 +4,7 @@ let divListeArticles = document.getElementById('liste-articles');
 let divListeAchat = document.getElementById('liste-achat');
 let divListeMaison = document.getElementById('liste-maison');
 let toutesLesTaches = document.getElementsByClassName('.tache');
+let tousLesBtnDelete = document.getElementsByClassName('delete-btn')
 let item;
 let tableauDropListe = [divListeAchat,divListeMaison,divListeArticles];
 
@@ -12,6 +13,7 @@ let tableauDropListe = [divListeAchat,divListeMaison,divListeArticles];
 ajouterTacheSubmit.addEventListener('submit', (e)=>{
     e.preventDefault();
     ajouterElementDivListeArticle();
+    preparerBtnDelete();
 });
 document.addEventListener('dragstart', function(e){
       dragStart(e.target);
@@ -20,20 +22,38 @@ document.addEventListener('dragstart', function(e){
 document.addEventListener('dragend', function(e){
     dragEnd(e.target);
 });
+
 // ---------------------------------------- fonctions ------------------------------------
 // fonction qui créer un élément HTML à chaque validation
 function ajouterElementDivListeArticle(){
-    console.log(inputArticle.value.length);
-    if(inputArticle.value.length > 3){
+    if(inputArticle.value.length > 2){
+        // création du <li>
         let newElement = document.createElement('li');
         newElement.textContent = inputArticle.value;
         newElement.setAttribute('draggable', true);
         newElement.className = "tache";
         divListeArticles.appendChild(newElement);
+        // création de la croix (pour supprimer le li)
+        let newElementCloseBtn = document.createElement('btn');
+        newElementCloseBtn.classList = "delete-btn";
+        newElement.appendChild(newElementCloseBtn);
         inputArticle.value ="";
     }
+    else{
+        inputArticle.value ="";
+        inputArticle.placeholder = "Veuillez saisir plus de 2 caractères"
+    }
 }
-
+function preparerBtnDelete(){
+    for(let i =0; i<tousLesBtnDelete.length;i++){
+        tousLesBtnDelete[i].addEventListener('click', (e) =>{
+            console.log(e.target.parentElement);
+            let parent = e.target.parentElement;
+            console.log(parent.parentElement)
+            parent.parentElement.removeChild(e.target.parentElement);
+        })
+    }    
+}
 function dragStart(tache){
     tache.className += " deplacement";
 }

@@ -81,13 +81,27 @@ input{
 }
 /* ------------------------------------------- tache ------------------------------------------- */
 .tache{
-    padding: 2px 8px;
+    padding: 8px 45px 8px 5px;
     background-color: rgb(250, 246, 246);
     border: 2px solid rgba(0, 0, 0, 0.247);
     border-radius: 5px;
     display: inline-block;
     margin-right: 7px;
+    margin-bottom: 7px;
     text-transform: capitalize;
+    position: relative;
+    font-weight: bold;
+}
+.delete-btn{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-image: url(./icons-png/delete.png);
+    background-size: cover;
+    z-index: 99;
+    margin: 0 10px
 }
 /* ------------------------------------ Classes liées au Drag n' Drop  ------------------------------ */
 .deplacement{
@@ -98,7 +112,8 @@ input{
     min-height: 20vh;
 }
 .hovered{
-    background-color: rgb(223, 8, 8);
+    background-color: rgba(93, 254, 6, 0.136);
+    height: 100%;
 }
 /* ------------------------------------------- footer ------------------------------------------- */
 footer{
