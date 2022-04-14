@@ -95,7 +95,6 @@ input, textarea{
     text-transform: capitalize;
     font-weight: bold;
     transition: 0.3s;
-    width: 88%;
     position: relative;
     display: flex;
     align-items: center;
