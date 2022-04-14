@@ -5,6 +5,8 @@ let divListeAchat = document.getElementById('liste-achat');
 let divListeMaison = document.getElementById('liste-maison');
 let toutesLesTaches = document.getElementsByClassName('.tache');
 let tousLesBtnDelete = document.getElementsByClassName('delete-btn')
+let tousLesTextArea = document.getElementsByClassName('tache-name');
+let inputTaskName = document.getElementsByClassName('tache-name');
 let item;
 let tableauDropListe = [divListeAchat,divListeMaison,divListeArticles];
 
@@ -14,6 +16,7 @@ ajouterTacheSubmit.addEventListener('submit', (e)=>{
     e.preventDefault();
     ajouterElementDivListeArticle();
     preparerBtnDelete();
+    textAreaResizeListener();
 });
 document.addEventListener('dragstart', function(e){
       dragStart(e.target);
@@ -22,17 +25,22 @@ document.addEventListener('dragstart', function(e){
 document.addEventListener('dragend', function(e){
     dragEnd(e.target);
 });
-
 // ---------------------------------------- fonctions ------------------------------------
 // fonction qui créer un élément HTML à chaque validation
 function ajouterElementDivListeArticle(){
     if(inputArticle.value.length > 2){
-        // création du <li>
-        let newElement = document.createElement('li');
-        newElement.textContent = inputArticle.value;
-        newElement.setAttribute('draggable', true);
-        newElement.className = "tache";
-        divListeArticles.appendChild(newElement);
+        // création d'un li pour stocker l'input et les autres éléments
+        let newLiElement = document.createElement('li');
+        newLiElement.className = "tache";
+        newLiElement.setAttribute('draggable', true);
+        divListeArticles.appendChild(newLiElement);
+        // création d'un input
+        let newElement = document.createElement('textarea');
+        newElement.value = inputArticle.value;
+        newElement.className = "tache-name";
+        newElement.setAttribute('min', "3");
+        newLiElement.appendChild(newElement);
+        autoResizeTextArea(newElement);
         // création de la quantité
         let newElementQuantityInput = document.createElement('input');
         newElementQuantityInput.setAttribute("type","number");
@@ -40,11 +48,11 @@ function ajouterElementDivListeArticle(){
         newElementQuantityInput.setAttribute("max","99");
         newElementQuantityInput.value = 1;
         newElementQuantityInput.classList = "quantity-input";
-        newElement.appendChild(newElementQuantityInput);
+        newLiElement.appendChild(newElementQuantityInput);
         // création de la croix (pour supprimer le li)
         let newElementCloseBtn = document.createElement('btn');
         newElementCloseBtn.classList = "delete-btn";
-        newElement.appendChild(newElementCloseBtn);
+        newLiElement.appendChild(newElementCloseBtn);
         inputArticle.value ="";
     }
     else{
@@ -59,8 +67,23 @@ function preparerBtnDelete(){
             let parent = e.target.parentElement;
             // console.log(parent.parentElement);
             parent.parentElement.removeChild(e.target.parentElement);
-        })
+        });
     }    
+}
+function textAreaResizeListener(){
+   
+    for(let i=0; i<tousLesTextArea.length;i++){
+        tousLesTextArea[i].addEventListener('input', ()=>{
+            console.log(tousLesTextArea[i])
+            autoResizeTextArea(tousLesTextArea[i]);
+        });
+    }
+
+}
+function autoResizeTextArea(param){
+    console.log(param);
+    param.style.height = 'auto';
+    param.style.height = param.scrollHeight + 'px';
 }
 function dragStart(tache){
     tache.className += " deplacement";

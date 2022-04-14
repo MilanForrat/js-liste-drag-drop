@@ -53,7 +53,7 @@ ul{
 }
 /* ------------------------------------------- btn ------------------------------------------- */
 .btn{
-    padding: 5px;
+    padding: 7px;
     border: 2px solid black;
     border-radius: 5px;
     font-weight: bold;
@@ -63,26 +63,30 @@ ul{
 #confirmer{
     background-color: rgb(84, 176, 119);
     color: black;
+    margin-left: 5px;
 }
 #confirmer:hover{
     background-color: rgb(56, 203, 112);
     color: rgb(59, 25, 25);
     transition: 0.4s;
 }
-/* ------------------------------------------- input ------------------------------------------- */
-input{
-    padding: 5px;
+/* ------------------------------------------- inputs ------------------------------------------- */
+input, textarea{
+    padding: 4px;
     border-radius: 5px;
     padding: 7px;
     border: 2px solid black;
     border-radius: 5px;
     font-style: italic;
-    width: 78%;
-    margin: 25px 0;
 }
+#article-input{
+    margin: 25px 0;
+    width: 78%;
+}
+
 /* ------------------------------------------- tache ------------------------------------------- */
 .tache{
-    padding: 8px 45px 8px 5px;
+    padding: 8px 5px;
     background-color: rgb(250, 246, 246);
     border: 2px solid rgba(0, 0, 0, 0.247);
     border-radius: 5px;
@@ -90,25 +94,50 @@ input{
     margin-bottom: 7px;
     text-transform: capitalize;
     font-weight: bold;
-    word-wrap: break-word;
+    transition: 0.3s;
+    width: 88%;
+    display: flex;
+    align-items: center;
+}
+.tache:hover{
+    background-color: rgb(201, 196, 196);
+    transition: 0.3s;
+}
+.tache:hover .quantity-input{
+    background-color: rgb(201, 196, 196);
+}
+.tache-name{
+    width: 70%;
+    word-break: break-word;
+    resize: none;
+    border: none;
+    overflow-y: hidden;
 }
 .delete-btn{
     display: inline-block;
-    margin-bottom: -6px;
+    margin-bottom: -8px;
     cursor: pointer;
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
     background-image: url(./icons-png/delete.png);
     background-size: cover;
     z-index: 99;
+    transition: 0.3s;
+}
+.delete-btn:hover{
+    background-color: rgb(200, 114, 114);
+    border-radius: 50%;
+    transition: 0.3s;
 }
 .quantity-input{
-    /* position: absolute;
-    right: 30px;
-    bottom: 2px; */
-    width: 40px;
+    background-color: rgb(250, 246, 246);
+    width: 10%;
     margin: 0 5px;
-    padding: 5px;
+    transition: 0.3s;
+}
+.quantity-input:hover{
+    background-color: rgb(232, 226, 226) !important;
+    transition: 0.3s;
 }
 /* ------------------------------------ Classes liées au Drag n' Drop  ------------------------------ */
 .deplacement{
