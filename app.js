@@ -5,8 +5,7 @@ let divListeAchat = document.getElementById('liste-achat');
 let divListeMaison = document.getElementById('liste-maison');
 let toutesLesTaches = document.getElementsByClassName('.tache');
 let tousLesBtnDelete = document.getElementsByClassName('delete-btn')
-let tousLesTextArea = document.getElementsByClassName('tache-name');
-let inputTaskName = document.getElementsByClassName('tache-name');
+let tousLesTextArea = document.getElementsByClassName('tache-text');
 let item;
 let tableauDropListe = [divListeAchat,divListeMaison,divListeArticles];
 
@@ -35,13 +34,21 @@ function ajouterElementDivListeArticle(){
         newLiElement.setAttribute('draggable', true);
         divListeArticles.appendChild(newLiElement);
         // création d'un input
+        let newElementTextAreaName = document.createElement('span');
+        newElementTextAreaName.textContent = "Article";
+        newElementTextAreaName.className="textArea-name";
+        newLiElement.appendChild(newElementTextAreaName);
         let newElement = document.createElement('textarea');
         newElement.value = inputArticle.value;
-        newElement.className = "tache-name";
+        newElement.className = "tache-text";
         newElement.setAttribute('min', "3");
         newLiElement.appendChild(newElement);
         autoResizeTextArea(newElement);
         // création de la quantité
+        let newElementQuantityName = document.createElement('span');
+        newElementQuantityName.textContent = "Quantité";
+        newElementQuantityName.className="quantity-name";
+        newLiElement.appendChild(newElementQuantityName);
         let newElementQuantityInput = document.createElement('input');
         newElementQuantityInput.setAttribute("type","number");
         newElementQuantityInput.setAttribute("min","0");
@@ -50,6 +57,10 @@ function ajouterElementDivListeArticle(){
         newElementQuantityInput.classList = "quantity-input";
         newLiElement.appendChild(newElementQuantityInput);
         // création de la croix (pour supprimer le li)
+        let newElementDeleteName = document.createElement('span');
+        newElementDeleteName.textContent = "Effacer";
+        newElementDeleteName.className="delete-name";
+        newLiElement.appendChild(newElementDeleteName);
         let newElementCloseBtn = document.createElement('btn');
         newElementCloseBtn.classList = "delete-btn";
         newLiElement.appendChild(newElementCloseBtn);
@@ -82,8 +93,13 @@ function textAreaResizeListener(){
 }
 function autoResizeTextArea(param){
     console.log(param);
-    param.style.height = 'auto';
-    param.style.height = param.scrollHeight + 'px';
+    if(param.value.length > 15){
+        param.style.height = 'auto';
+        param.style.height = (param.scrollHeight-12) + 'px';
+    }else{
+        param.style.height = 'auto';
+        param.style.height = (param.scrollHeight-26) + 'px';
+    }
 }
 function dragStart(tache){
     tache.className += " deplacement";
